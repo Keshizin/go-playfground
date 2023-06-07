@@ -5,6 +5,11 @@ import (
 	"net/http"
 )
 
+type Login struct {
+	User     string
+	Password string
+}
+
 var templates = template.Must(template.ParseGlob("templates/*.html"))
 
 func main() {
@@ -13,5 +18,14 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "Index", nil)
+	logins := []Login{
+		{User: "carlos1", Password: "123"},
+		{User: "carlos2", Password: "456"},
+		{User: "rodrigo", Password: "123"},
+		{User: "marina", Password: "123"},
+		{User: "jummy", Password: "123"},
+		{User: "takeshi", Password: "123"},
+	}
+
+	templates.ExecuteTemplate(w, "Index", logins)
 }
