@@ -1,4 +1,6 @@
+
+
 ```
+cd src\github.com\Keshizin
 go run main.go
-go build main.go
 ```
